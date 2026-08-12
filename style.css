@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.introducao {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.introducao h2 {
+    margin-top: 0;
+}
+
+.filtros {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#campoBusca {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+#categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#categorias button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#categorias button:hover {
+    background-color: #2980b9;
+}
+
+#quantidade {
+    font-weight: bold;
+}
+
+.lista-cursos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.curso {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.curso h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.curso p {
+    line-height: 1.5;
+}
+
+.categoria {
+    color: #2980b9;
+    font-weight: bold;
+}
+
+.curso a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.curso a:hover {
+    background-color: #219150;
+}
+
+#nenhumCurso {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+@media (max-width: 700px) {
+
+    .lista-cursos {
+        grid-template-columns: 1fr;
+    }
+
+}
