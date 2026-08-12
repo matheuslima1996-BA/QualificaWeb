@@ -1,726 +1,866 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QualificaWeb — Cursos gratuitos, oportunidades reais</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #EDF1F3;
-    --bg-card: #FFFFFF;
-    --ink: #132A3A;
-    --ink-soft: #4C6270;
-    --line: #C9D5DA;
-    --accent: #D98E2B;
-    --accent-ink: #7A4E12;
-    --teal: #2F8F80;
-    --teal-bg: #E3F1EE;
-    --coral: #C2542F;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    --display: 'Fraunces', serif;
-    --body: 'Inter', sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
-  }
+  <title>QualificaWeb - Cursos gratuitos</title>
 
-  *{ box-sizing: border-box; margin:0; padding:0; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  body{
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--body);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
 
-  a{ color: inherit; }
+  <style>
+    :root {
+      --fundo: #edf1f3;
+      --branco: #ffffff;
+      --texto: #132a3a;
+      --texto-claro: #4c6270;
+      --borda: #c9d5da;
+      --laranja: #d98e2b;
+      --laranja-escuro: #7a4e12;
+      --verde: #2f8f80;
+      --verde-claro: #e3f1ee;
 
-  .wrap{
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+      --titulo: 'Fraunces', serif;
+      --texto-font: 'Inter', sans-serif;
+      --mono: 'IBM Plex Mono', monospace;
+    }
 
-  /* ---------- HEADER ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  header.site{
-    border-bottom: 1px solid var(--line);
-    background: var(--bg);
-    position: sticky;
-    top: 0;
-    z-index: 20;
-  }
+    body {
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: var(--texto-font);
+      line-height: 1.5;
+    }
 
-  .site-bar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding: 18px 0;
-  }
+    a {
+      color: inherit;
+    }
 
-  .brand{
-    display:flex;
-    align-items:baseline;
-    gap: 10px;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.35rem;
-    letter-spacing: -0.01em;
-  }
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+    }
 
-  .brand .dot{
-    width: 9px; height:9px; border-radius:50%;
-    background: var(--accent);
-    display:inline-block;
-    transform: translateY(-2px);
-  }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--fundo);
+      border-bottom: 1px solid var(--borda);
+    }
 
-  .brand small{
-    font-family: var(--mono);
-    font-weight: 400;
-    font-size: 0.62rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
+    .header-content {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-  .count-pill{
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--teal);
-    background: var(--teal-bg);
-    border: 1px solid #bfe0d8;
-    padding: 6px 12px;
-    border-radius: 100px;
-    white-space: nowrap;
-  }
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      font-family: var(--titulo);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
 
-  /* ---------- HERO ---------- */
+    .logo-ponto {
+      width: 9px;
+      height: 9px;
+      display: inline-block;
+      background: var(--laranja);
+      border-radius: 50%;
+    }
 
-  .hero{
-    padding: 64px 0 40px;
-    position: relative;
-    overflow: hidden;
-  }
+    .logo small {
+      color: var(--texto-claro);
+      font-family: var(--mono);
+      font-size: .62rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
 
-  .hero-eyebrow{
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--accent-ink);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom: 20px;
-  }
+    .contador {
+      padding: 6px 12px;
+      border: 1px solid #bfe0d8;
+      border-radius: 30px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-family: var(--mono);
+      font-size: .72rem;
+      white-space: nowrap;
+    }
 
-  .hero-eyebrow::before{
-    content:"";
-    width: 26px; height:1px;
-    background: var(--accent);
-  }
+    .hero {
+      padding: 60px 0 35px;
+    }
 
-  h1.headline{
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: clamp(2.1rem, 5vw, 3.4rem);
-    line-height: 1.06;
-    letter-spacing: -0.02em;
-    max-width: 15ch;
-    color: var(--ink);
-  }
+    .chamada {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--laranja-escuro);
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
 
-  h1.headline em{
-    font-style: italic;
-    font-weight: 500;
-    color: var(--teal);
-  }
+    .chamada::before {
+      content: "";
+      width: 25px;
+      height: 1px;
+      background: var(--laranja);
+    }
 
-  .hero-sub{
-    margin-top: 20px;
-    max-width: 46ch;
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-  }
+    h1 {
+      max-width: 700px;
+      font-family: var(--titulo);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.08;
+    }
 
-  /* ---------- SEARCH / FILTER BOARD ---------- */
+    h1 span {
+      color: var(--verde);
+      font-style: italic;
+    }
 
-  .board{
-    margin-top: 40px;
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 20px;
-    box-shadow: 0 1px 0 rgba(19,42,58,0.02);
-  }
+    .descricao {
+      max-width: 650px;
+      margin-top: 18px;
+      color: var(--texto-claro);
+      font-size: 1.02rem;
+    }
 
-  .search-row{
-    display:flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+    .filtros {
+      margin-top: 35px;
+      padding: 20px;
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+    }
 
-  .search-input-wrap{
-    flex: 1 1 260px;
-    position: relative;
-  }
+    .busca {
+      display: flex;
+      gap: 12px;
+    }
 
-  .search-input-wrap svg{
-    position:absolute;
-    left: 14px; top: 50%;
-    transform: translateY(-50%);
-    color: var(--ink-soft);
-  }
+    .campo-busca {
+      flex: 1;
+    }
 
-  #searchInput{
-    width: 100%;
-    padding: 13px 16px 13px 42px;
-    border: 1px solid var(--line);
-    border-radius: 9px;
-    font-family: var(--body);
-    font-size: 0.95rem;
-    background: #FBFCFD;
-    color: var(--ink);
-    outline: none;
-    transition: border-color .15s ease, background .15s ease;
-  }
+    .campo-busca input {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      background: #fbfcfd;
+      color: var(--texto);
+      font-family: var(--texto-font);
+      font-size: .95rem;
+      outline: none;
+    }
 
-  #searchInput:focus{
-    border-color: var(--teal);
-    background: #fff;
-  }
+    .campo-busca input:focus {
+      border-color: var(--verde);
+    }
 
-  #searchInput::placeholder{ color: #93A4AC; }
+    .campo-busca input::placeholder {
+      color: #93a4ac;
+    }
 
-  .clear-btn{
-    border: 1px solid var(--line);
-    background: #FBFCFD;
-    color: var(--ink-soft);
-    font-family: var(--body);
-    font-size: 0.88rem;
-    padding: 0 18px;
-    border-radius: 9px;
-    cursor: pointer;
-    transition: background .15s ease, color .15s ease;
-  }
-  .clear-btn:hover{ background: #F1F4F5; color: var(--ink); }
-  .clear-btn:focus-visible, #searchInput:focus-visible, .chip:focus-visible, .card-link:focus-visible{
-    outline: 2px solid var(--teal);
-    outline-offset: 2px;
-  }
+    .botao-limpar {
+      padding: 0 18px;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      background: #fbfcfd;
+      color: var(--texto-claro);
+      font-family: var(--texto-font);
+      cursor: pointer;
+    }
 
-  .chip-row{
-    margin-top: 14px;
-    display:flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+    .botao-limpar:hover {
+      background: #f1f4f5;
+      color: var(--texto);
+    }
 
-  .chip{
-    font-family: var(--mono);
-    font-size: 0.76rem;
-    letter-spacing: 0.02em;
-    padding: 7px 14px;
-    border-radius: 100px;
-    border: 1px solid var(--line);
-    background: #FBFCFD;
-    color: var(--ink-soft);
-    cursor: pointer;
-    transition: all .15s ease;
-    text-transform: uppercase;
-  }
+    .categorias {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
 
-  .chip:hover{ border-color: var(--teal); color: var(--teal); }
+    .categoria {
+      padding: 7px 13px;
+      border: 1px solid var(--borda);
+      border-radius: 30px;
+      background: #fbfcfd;
+      color: var(--texto-claro);
+      font-family: var(--mono);
+      font-size: .73rem;
+      cursor: pointer;
+    }
 
-  .chip.active{
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #fff;
-  }
+    .categoria:hover {
+      border-color: var(--verde);
+      color: var(--verde);
+    }
 
-  /* ---------- RESULTS META ---------- */
+    .categoria.ativa {
+      background: var(--texto);
+      border-color: var(--texto);
+      color: white;
+    }
 
-  .results-meta{
-    margin: 34px 0 18px;
-    display:flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+    .topo-resultados {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin: 34px 0 18px;
+    }
 
-  .results-meta h2{
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: 1.15rem;
-  }
+    .topo-resultados h2 {
+      font-family: var(--titulo);
+      font-size: 1.2rem;
+    }
 
-  .results-meta .sub{
-    font-family: var(--mono);
-    font-size: 0.76rem;
-    color: var(--ink-soft);
-  }
+    .quantidade {
+      color: var(--texto-claro);
+      font-family: var(--mono);
+      font-size: .72rem;
+    }
 
-  /* ---------- GRID / CARDS ---------- */
+    .cursos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+      padding-bottom: 80px;
+    }
 
-  .grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 18px;
-    padding-bottom: 80px;
-  }
+    .curso {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 22px;
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      transition: transform .2s, box-shadow .2s;
+    }
 
-  .card{
-    position: relative;
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 24px 22px 20px;
-    display:flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  }
+    .curso:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(19, 42, 58, .12);
+    }
 
-  .card:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 14px 28px -18px rgba(19,42,58,0.35);
-    border-color: #b8c7ce;
-  }
+    .curso-topo {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
 
-  .card-top{
-    display:flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-  }
+    .categoria-curso {
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-family: var(--mono);
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
 
-  .cat-tag{
-    font-family: var(--mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--teal);
-    background: var(--teal-bg);
-    padding: 5px 10px;
-    border-radius: 6px;
-    white-space: nowrap;
-  }
+    .selo {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px dashed var(--laranja);
+      border-radius: 50%;
+      color: var(--laranja-escuro);
+      font-family: var(--mono);
+      font-size: .5rem;
+      font-weight: 600;
+      line-height: 1.1;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(-8deg);
+    }
 
-  /* signature stamp */
-  .stamp{
-    flex-shrink: 0;
-    width: 62px; height: 62px;
-    border-radius: 50%;
-    border: 1.5px dashed var(--accent);
-    color: var(--accent-ink);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    font-family: var(--mono);
-    font-size: 0.52rem;
-    letter-spacing: 0.05em;
-    line-height: 1.15;
-    text-transform: uppercase;
-    transform: rotate(-9deg);
-    background: repeating-linear-gradient(135deg, rgba(217,142,43,0.06) 0px, rgba(217,142,43,0.06) 2px, transparent 2px, transparent 7px);
-    font-weight: 600;
-  }
+    .curso h3 {
+      font-family: var(--titulo);
+      font-size: 1.18rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
 
-  .card-title{
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: 1.18rem;
-    line-height: 1.28;
-    letter-spacing: -0.01em;
-  }
+    .instituicao {
+      color: var(--texto);
+      font-size: .87rem;
+      font-weight: 600;
+    }
 
-  .card-inst{
-    font-size: 0.88rem;
-    color: var(--ink-soft);
-  }
+    .resumo {
+      flex: 1;
+      color: var(--texto-claro);
+      font-size: .87rem;
+      line-height: 1.55;
+    }
 
-  .card-inst strong{ color: var(--ink); font-weight: 600; }
+    .informacoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--borda);
+      color: var(--texto-claro);
+      font-family: var(--mono);
+      font-size: .7rem;
+    }
 
-  .card-desc{
-    font-size: 0.88rem;
-    color: var(--ink-soft);
-    line-height: 1.55;
-    flex: 1;
-  }
+    .link-curso {
+      width: fit-content;
+      margin-top: 3px;
+      padding-bottom: 2px;
+      border-bottom: 2px solid var(--laranja);
+      color: var(--texto);
+      font-size: .85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-  .card-meta{
-    display:flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--ink-soft);
-    border-top: 1px dashed var(--line);
-    padding-top: 12px;
-  }
+    .link-curso:hover {
+      color: var(--verde);
+    }
 
-  .card-meta span{ display:flex; align-items:center; gap:5px; }
+    .vazio {
+      display: none;
+      padding: 60px 20px;
+      margin-bottom: 80px;
+      border: 1px dashed var(--borda);
+      border-radius: 14px;
+      text-align: center;
+    }
 
-  .card-link{
-    margin-top: 4px;
-    display:inline-flex;
-    align-items:center;
-    gap: 6px;
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1.5px solid var(--accent);
-    width: fit-content;
-    padding-bottom: 1px;
-    transition: gap .15s ease;
-  }
-  .card-link:hover{ gap: 10px; }
+    .vazio.mostrar {
+      display: block;
+    }
 
-  /* ---------- EMPTY STATE ---------- */
+    .vazio h3 {
+      margin-bottom: 7px;
+      font-family: var(--titulo);
+      font-size: 1.3rem;
+    }
 
-  .empty{
-    display:none;
-    padding: 70px 20px;
-    text-align:center;
-    border: 1px dashed var(--line);
-    border-radius: 14px;
-    margin-bottom: 80px;
-  }
+    .vazio p {
+      color: var(--texto-claro);
+      font-size: .9rem;
+    }
 
-  .empty.show{ display:block; }
+    footer {
+      padding: 30px 0 45px;
+      border-top: 1px solid var(--borda);
+    }
 
-  .empty h3{
-    font-family: var(--display);
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-  }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-  .empty p{ color: var(--ink-soft); font-size: 0.92rem; }
+    footer p {
+      color: var(--texto-claro);
+      font-family: var(--mono);
+      font-size: .7rem;
+    }
 
-  /* ---------- FOOTER ---------- */
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 30px, 1160px);
+      }
 
-  footer{
-    border-top: 1px solid var(--line);
-    padding: 30px 0 50px;
-  }
+      .hero {
+        padding-top: 42px;
+      }
 
-  footer .wrap{
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
+      .busca {
+        flex-direction: column;
+      }
 
-  footer p{
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--ink-soft);
-  }
+      .botao-limpar {
+        padding: 12px;
+      }
 
-  @media (max-width: 560px){
-    .hero{ padding: 44px 0 28px; }
-    .search-row{ flex-direction: column; }
-    .clear-btn{ padding: 12px; }
-  }
+      .header-content {
+        min-height: 65px;
+      }
 
-  @media (prefers-reduced-motion: reduce){
-    *{ transition: none !important; }
-  }
-</style>
+      .logo small {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="site">
-  <div class="wrap site-bar">
-    <div class="brand">
-      <span class="dot"></span>QualificaWeb
-      <small>&nbsp;— cursos gratuitos</small>
+  <header>
+    <div class="container header-content">
+
+      <div class="logo">
+        <span class="logo-ponto"></span>
+        QualificaWeb
+        <small>— cursos gratuitos</small>
+      </div>
+
+      <div class="contador" id="contador">
+        0 cursos disponíveis
+      </div>
+
     </div>
-    <div class="count-pill" id="countPill">— cursos disponíveis</div>
-  </div>
-</header>
+  </header>
 
-<section class="hero">
-  <div class="wrap">
-    <p class="hero-eyebrow">Mural de oportunidades</p>
-    <h1 class="headline">Cursos gratuitos, <em>oportunidades reais.</em></h1>
-    <p class="hero-sub">Uma seleção organizada de cursos gratuitos e certificados de instituições reconhecidas. Busque por assunto ou filtre por área para encontrar o próximo passo.</p>
+  <section class="hero">
 
-    <div class="board">
-      <div class="search-row">
-        <div class="search-input-wrap">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="searchInput" placeholder="Buscar por curso, instituição ou palavra-chave...">
+    <div class="container">
+
+      <p class="chamada">Mural de oportunidades</p>
+
+      <h1>
+        Cursos gratuitos,
+        <span>oportunidades reais.</span>
+      </h1>
+
+      <p class="descricao">
+        Encontre cursos gratuitos e oportunidades de aprendizado
+        em diferentes áreas. Pesquise pelo nome do curso,
+        instituição ou categoria.
+      </p>
+
+      <div class="filtros">
+
+        <div class="busca">
+
+          <div class="campo-busca">
+            <input
+              type="text"
+              id="campoBusca"
+              placeholder="Buscar curso, instituição ou assunto..."
+            >
+          </div>
+
+          <button class="botao-limpar" id="limpar">
+            Limpar busca
+          </button>
+
         </div>
-        <button class="clear-btn" id="clearBtn">Limpar busca</button>
+
+        <div class="categorias" id="categorias"></div>
+
       </div>
-      <div class="chip-row" id="chipRow"></div>
+
     </div>
-  </div>
-</section>
 
-<main class="wrap">
-  <div class="results-meta">
-    <h2 id="resultsTitle">Todos os cursos</h2>
-    <span class="sub" id="resultsCount"></span>
-  </div>
+  </section>
 
-  <div class="grid" id="grid"></div>
+  <main class="container">
 
-  <div class="empty" id="emptyState">
-    <h3>Nenhum curso encontrado</h3>
-    <p>Tente outra palavra-chave ou remova o filtro de área selecionado.</p>
-  </div>
-</main>
+    <div class="topo-resultados">
 
-<footer>
-  <div class="wrap">
-    <p>QualificaWeb — atualizado manualmente pela equipe</p>
-    <p>Lista de cursos editável em <code>COURSES</code> no código-fonte</p>
-  </div>
-</footer>
+      <h2 id="tituloResultados">
+        Todos os cursos
+      </h2>
 
-<script>
-/* =====================================================================
-   LISTA DE CURSOS — edite este array para adicionar, remover ou alterar
-   cursos. Cada objeto é um curso. Campos:
-   - title: nome do curso
-   - institution: quem oferece
-   - category: uma das categorias usadas nos filtros (veja CATEGORIES)
-   - description: resumo curto (1-2 frases)
-   - duration: ex "20h", "3 semanas"
-   - modality: "EAD" ou "Presencial"
-   - link: URL para inscrição/mais informações
-===================================================================== */
+      <span class="quantidade" id="quantidade"></span>
 
-const COURSES = [
-  {
-    title: "Introdução à Análise de Dados - Microsoft Power BI",
-    institution: "Fundação Bradesco — Escola Virtual",
-    category: "Tecnologia",
-    description: "Primeiros passos no Power BI: conceitos de análise de dados e navegação básica na ferramenta.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.ev.org.br/cursos/introducao-a-analise-de-dados-microsoft-power-bi"
-  },
-  {
-    title: "Administrando Banco de Dados",
-    institution: "Fundação Bradesco — Escola Virtual",
-    category: "Tecnologia",
-    description: "Conceitos fundamentais de bancos de dados e boas práticas para organizar e administrar informações.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.ev.org.br/cursos/administrando-banco-de-dados"
-  },
-  {
-    title: "Análise de Dados no Power BI",
-    institution: "Fundação Bradesco — Escola Virtual",
-    category: "Tecnologia",
-    description: "Aprofundamento no Power BI, com foco em construir análises e relatórios a partir de dados reais.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.ev.org.br/cursos/analise-de-dados-no-power-bi"
-  },
-  {
-    title: "Crie um site simples usando HTML, CSS e JavaScript",
-    institution: "Fundação Bradesco — Escola Virtual",
-    category: "Tecnologia",
-    description: "Introdução prática ao desenvolvimento web, construindo um site do zero com as três tecnologias base.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript"
-  },
-  {
-    title: "Linguagem de Programação Python - Básico",
-    institution: "Fundação Bradesco — Escola Virtual",
-    category: "Tecnologia",
-    description: "Fundamentos da linguagem Python para quem está começando a programar.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.ev.org.br/cursos/linguagem-de-programacao-python-basico"
-  },
-  {
-    title: "Fundamentos de TI: Hardware e Software",
-    institution: "Fundação Bradesco — Escola Virtual",
-    category: "Tecnologia",
-    description: "Noções essenciais sobre componentes de hardware e software para quem quer iniciar em TI.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software"
-  },
-  {
-    title: "Excel básico 2013/2016",
-    institution: "Udemy",
-    category: "Tecnologia",
-    description: "Funções essenciais do Excel para organizar planilhas e agilizar tarefas do dia a dia.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.udemy.com/course/excel-basico-20132016/"
-  },
-  {
-    title: "Microsoft PowerPoint para quem não sabe nada de PowerPoint",
-    institution: "Udemy",
-    category: "Tecnologia",
-    description: "Passo a passo para criar apresentações do zero, pensado para quem nunca usou o programa.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.udemy.com/course/powerpoint-para-quem-nao-sabe-nada-de-powerpoint/"
-  },
-  {
-    title: "Discovery - Mini curso de inglês gratuito",
-    institution: "Udemy",
-    category: "Idiomas",
-    description: "Introdução ao inglês com foco em vocabulário e expressões do cotidiano.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.udemy.com/course/mini-curso-de-ingles-gratuito/"
-  },
-  {
-    title: "Empreendedorismo",
-    institution: "Udemy",
-    category: "Administração",
-    description: "Conceitos centrais para quem quer tirar um negócio do papel, da ideia ao planejamento inicial.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.udemy.com/course/curso-de-empreendedorismo/"
-  },
-  {
-    title: "Investimento em Renda Fixa - Iniciante",
-    institution: "Udemy",
-    category: "Finanças",
-    description: "Introdução ao Tesouro Direto e outros investimentos de renda fixa para quem está começando.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.udemy.com/course/tesouro-direto-intermediario-e-avancado/"
-  },
-  {
-    title: "Matemática Básica",
-    institution: "Udemy",
-    category: "Educação",
-    description: "Revisão dos conceitos fundamentais de matemática, ideal para reforçar a base antes de outros estudos.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://www.udemy.com/course/matematica-basica-denis-wiener/"
-  },
-  {
-    title: "Manutenção preventiva de veículos",
-    institution: "SEST SENAT",
-    category: "Automotivo",
-    description: "Cuidados básicos e rotina de manutenção para manter o veículo em bom estado e evitar problemas.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://digital.sestsenat.org.br/cursos/manutencao-preventiva-de-veiculos"
-  },
-  {
-    title: "Mecânica descomplicada",
-    institution: "SEST SENAT",
-    category: "Automotivo",
-    description: "Noções de mecânica automotiva explicadas de forma simples para o dia a dia de quem dirige.",
-    duration: "Ver no curso",
-    modality: "EAD",
-    link: "https://digital.sestsenat.org.br/cursos/mecanica-descomplicada"
-  }
-];
+    </div>
 
-const CATEGORIES = ["Todos", ...Array.from(new Set(COURSES.map(c => c.category))).sort()];
+    <div class="cursos" id="listaCursos"></div>
 
-/* ===================================================================== */
+    <div class="vazio" id="mensagemVazia">
 
-let activeCategory = "Todos";
-let searchTerm = "";
+      <h3>Nenhum curso encontrado</h3>
 
-const grid = document.getElementById('grid');
-const chipRow = document.getElementById('chipRow');
-const emptyState = document.getElementById('emptyState');
-const resultsTitle = document.getElementById('resultsTitle');
-const resultsCount = document.getElementById('resultsCount');
-const countPill = document.getElementById('countPill');
-const searchInput = document.getElementById('searchInput');
-const clearBtn = document.getElementById('clearBtn');
+      <p>
+        Tente pesquisar por outro termo ou escolha outra categoria.
+      </p>
 
-function renderChips(){
-  chipRow.innerHTML = "";
-  CATEGORIES.forEach(cat => {
-    const chip = document.createElement('button');
-    chip.className = 'chip' + (cat === activeCategory ? ' active' : '');
-    chip.textContent = cat;
-    chip.setAttribute('type', 'button');
-    chip.addEventListener('click', () => {
-      activeCategory = cat;
-      renderChips();
-      renderGrid();
+    </div>
+
+  </main>
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <p>
+        QualificaWeb — cursos e oportunidades
+      </p>
+
+      <p>
+        Projeto desenvolvido para facilitar o acesso à qualificação.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    const cursos = [
+
+      {
+        titulo: "Introdução à Análise de Dados - Microsoft Power BI",
+        instituicao: "Fundação Bradesco — Escola Virtual",
+        categoria: "Tecnologia",
+        descricao: "Primeiros passos no Power BI, com conceitos de análise de dados e navegação básica na ferramenta.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.ev.org.br/cursos/introducao-a-analise-de-dados-microsoft-power-bi"
+      },
+
+      {
+        titulo: "Administrando Banco de Dados",
+        instituicao: "Fundação Bradesco — Escola Virtual",
+        categoria: "Tecnologia",
+        descricao: "Conceitos fundamentais de bancos de dados e boas práticas para organizar e administrar informações.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.ev.org.br/cursos/administrando-banco-de-dados"
+      },
+
+      {
+        titulo: "Análise de Dados no Power BI",
+        instituicao: "Fundação Bradesco — Escola Virtual",
+        categoria: "Tecnologia",
+        descricao: "Curso voltado para a criação de análises e relatórios utilizando o Power BI.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.ev.org.br/cursos/analise-de-dados-no-power-bi"
+      },
+
+      {
+        titulo: "Crie um site simples usando HTML, CSS e JavaScript",
+        instituicao: "Fundação Bradesco — Escola Virtual",
+        categoria: "Tecnologia",
+        descricao: "Introdução ao desenvolvimento de sites utilizando HTML, CSS e JavaScript.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript"
+      },
+
+      {
+        titulo: "Linguagem de Programação Python - Básico",
+        instituicao: "Fundação Bradesco — Escola Virtual",
+        categoria: "Tecnologia",
+        descricao: "Conteúdos básicos da linguagem Python para quem está começando a programar.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.ev.org.br/cursos/linguagem-de-programacao-python-basico"
+      },
+
+      {
+        titulo: "Fundamentos de TI: Hardware e Software",
+        instituicao: "Fundação Bradesco — Escola Virtual",
+        categoria: "Tecnologia",
+        descricao: "Noções básicas sobre hardware, software e os principais conceitos de tecnologia da informação.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software"
+      },
+
+      {
+        titulo: "Excel básico 2013/2016",
+        instituicao: "Udemy",
+        categoria: "Tecnologia",
+        descricao: "Aprenda funções básicas do Excel para organizar informações e trabalhar com planilhas.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.udemy.com/course/excel-basico-20132016/"
+      },
+
+      {
+        titulo: "Microsoft PowerPoint para quem não sabe nada de PowerPoint",
+        instituicao: "Udemy",
+        categoria: "Tecnologia",
+        descricao: "Curso introdutório para aprender a criar apresentações utilizando o PowerPoint.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.udemy.com/course/powerpoint-para-quem-nao-sabe-nada-de-powerpoint/"
+      },
+
+      {
+        titulo: "Discovery - Mini curso de inglês gratuito",
+        instituicao: "Udemy",
+        categoria: "Idiomas",
+        descricao: "Introdução ao inglês com vocabulário e expressões utilizadas no cotidiano.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.udemy.com/course/mini-curso-de-ingles-gratuito/"
+      },
+
+      {
+        titulo: "Empreendedorismo",
+        instituicao: "Udemy",
+        categoria: "Administração",
+        descricao: "Conceitos básicos para quem deseja transformar uma ideia em um negócio.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.udemy.com/course/curso-de-empreendedorismo/"
+      },
+
+      {
+        titulo: "Investimento em Renda Fixa - Iniciante",
+        instituicao: "Udemy",
+        categoria: "Finanças",
+        descricao: "Introdução aos investimentos de renda fixa e aos principais conceitos para quem está começando.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.udemy.com/course/tesouro-direto-intermediario-e-avancado/"
+      },
+
+      {
+        titulo: "Matemática Básica",
+        instituicao: "Udemy",
+        categoria: "Educação",
+        descricao: "Revisão dos principais conceitos de matemática para reforçar conhecimentos básicos.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://www.udemy.com/course/matematica-basica-denis-wiener/"
+      },
+
+      {
+        titulo: "Manutenção preventiva de veículos",
+        instituicao: "SEST SENAT",
+        categoria: "Automotivo",
+        descricao: "Cuidados básicos para realizar a manutenção preventiva e evitar problemas no veículo.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://digital.sestsenat.org.br/cursos/manutencao-preventiva-de-veiculos"
+      },
+
+      {
+        titulo: "Mecânica descomplicada",
+        instituicao: "SEST SENAT",
+        categoria: "Automotivo",
+        descricao: "Noções básicas de mecânica automotiva apresentadas de maneira simples e prática.",
+        duracao: "Ver no curso",
+        modalidade: "EAD",
+        link: "https://digital.sestsenat.org.br/cursos/mecanica-descomplicada"
+      }
+
+    ];
+
+
+    const categorias = [
+      "Todos",
+      ...new Set(cursos.map(curso => curso.categoria))
+    ];
+
+    let categoriaAtual = "Todos";
+    let textoBusca = "";
+
+
+    const listaCursos = document.getElementById("listaCursos");
+    const categoriasDiv = document.getElementById("categorias");
+    const campoBusca = document.getElementById("campoBusca");
+    const limpar = document.getElementById("limpar");
+    const quantidade = document.getElementById("quantidade");
+    const contador = document.getElementById("contador");
+    const tituloResultados = document.getElementById("tituloResultados");
+    const mensagemVazia = document.getElementById("mensagemVazia");
+
+
+    function criarCategorias() {
+
+      categoriasDiv.innerHTML = "";
+
+      categorias.forEach(categoria => {
+
+        const botao = document.createElement("button");
+
+        botao.className = "categoria";
+
+        if (categoria === categoriaAtual) {
+          botao.classList.add("ativa");
+        }
+
+        botao.textContent = categoria;
+
+        botao.addEventListener("click", () => {
+
+          categoriaAtual = categoria;
+
+          criarCategorias();
+          mostrarCursos();
+
+        });
+
+        categoriasDiv.appendChild(botao);
+
+      });
+
+    }
+
+
+    function criarCard(curso) {
+
+      return `
+        <article class="curso">
+
+          <div class="curso-topo">
+
+            <span class="categoria-curso">
+              ${curso.categoria}
+            </span>
+
+            <div class="selo">
+              Curso<br>
+              gratuito
+            </div>
+
+          </div>
+
+          <h3>
+            ${curso.titulo}
+          </h3>
+
+          <p class="instituicao">
+            ${curso.instituicao}
+          </p>
+
+          <p class="resumo">
+            ${curso.descricao}
+          </p>
+
+          <div class="informacoes">
+            <span>⏱ ${curso.duracao}</span>
+            <span>💻 ${curso.modalidade}</span>
+          </div>
+
+          <a
+            class="link-curso"
+            href="${curso.link}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver informações →
+          </a>
+
+        </article>
+      `;
+
+    }
+
+
+    function mostrarCursos() {
+
+      const termo = textoBusca.trim().toLowerCase();
+
+      const encontrados = cursos.filter(curso => {
+
+        const categoriaOk =
+          categoriaAtual === "Todos" ||
+          curso.categoria === categoriaAtual;
+
+        const textoCurso = `
+          ${curso.titulo}
+          ${curso.instituicao}
+          ${curso.descricao}
+          ${curso.categoria}
+        `.toLowerCase();
+
+        const buscaOk =
+          termo === "" ||
+          textoCurso.includes(termo);
+
+        return categoriaOk && buscaOk;
+
+      });
+
+
+      listaCursos.innerHTML =
+        encontrados.map(criarCard).join("");
+
+
+      tituloResultados.textContent =
+        categoriaAtual === "Todos"
+          ? "Todos os cursos"
+          : categoriaAtual;
+
+
+      quantidade.textContent =
+        `${encontrados.length} ${
+          encontrados.length === 1
+            ? "resultado"
+            : "resultados"
+        }`;
+
+
+      mensagemVazia.classList.toggle(
+        "mostrar",
+        encontrados.length === 0
+      );
+
+    }
+
+
+    campoBusca.addEventListener("input", function() {
+
+      textoBusca = this.value;
+
+      mostrarCursos();
+
     });
-    chipRow.appendChild(chip);
-  });
-}
 
-function stampWords(){
-  return ["Curso", "Gratuito"];
-}
 
-function cardHTML(course){
-  const [w1, w2] = stampWords();
-  return `
-    <article class="card">
-      <div class="card-top">
-        <span class="cat-tag">${course.category}</span>
-        <div class="stamp" aria-hidden="true">${w1}<br>${w2}</div>
-      </div>
-      <h3 class="card-title">${course.title}</h3>
-      <p class="card-inst"><strong>${course.institution}</strong></p>
-      <p class="card-desc">${course.description}</p>
-      <div class="card-meta">
-        <span>⏱ ${course.duration}</span>
-        <span>💻 ${course.modality}</span>
-      </div>
-      <a class="card-link" href="${course.link}" target="_blank" rel="noopener noreferrer">
-        Ver mais informações →
-      </a>
-    </article>
-  `;
-}
+    limpar.addEventListener("click", function() {
 
-function renderGrid(){
-  const term = searchTerm.trim().toLowerCase();
+      campoBusca.value = "";
 
-  const filtered = COURSES.filter(c => {
-    const matchesCategory = activeCategory === "Todos" || c.category === activeCategory;
-    const haystack = (c.title + " " + c.institution + " " + c.description + " " + c.category).toLowerCase();
-    const matchesSearch = term === "" || haystack.includes(term);
-    return matchesCategory && matchesSearch;
-  });
+      textoBusca = "";
 
-  grid.innerHTML = filtered.map(cardHTML).join("");
-  emptyState.classList.toggle('show', filtered.length === 0);
+      categoriaAtual = "Todos";
 
-  resultsTitle.textContent = activeCategory === "Todos" ? "Todos os cursos" : activeCategory;
-  resultsCount.textContent = `${filtered.length} ${filtered.length === 1 ? 'resultado' : 'resultados'}`;
-}
+      criarCategorias();
+      mostrarCursos();
 
-searchInput.addEventListener('input', (e) => {
-  searchTerm = e.target.value;
-  renderGrid();
-});
+      campoBusca.focus();
 
-clearBtn.addEventListener('click', () => {
-  searchTerm = "";
-  searchInput.value = "";
-  activeCategory = "Todos";
-  renderChips();
-  renderGrid();
-  searchInput.focus();
-});
+    });
 
-countPill.textContent = `${COURSES.length} cursos disponíveis`;
-renderChips();
-renderGrid();
-</script>
+
+    contador.textContent =
+      `${cursos.length} cursos disponíveis`;
+
+
+    criarCategorias();
+    mostrarCursos();
+
+  </script>
 
 </body>
 </html>
