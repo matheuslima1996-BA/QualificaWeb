@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QualificaWeb — Cursos gratuitos, oportunidades reais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #EDF1F3;
+    --bg-card: #FFFFFF;
+    --ink: #132A3A;
+    --ink-soft: #4C6270;
+    --line: #C9D5DA;
+    --accent: #D98E2B;
+    --accent-ink: #7A4E12;
+    --teal: #2F8F80;
+    --teal-bg: #E3F1EE;
+    --coral: #C2542F;
+
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  header.site{
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .site-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 18px 0;
+  }
+
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap: 10px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  .brand .dot{
+    width: 9px; height:9px; border-radius:50%;
+    background: var(--accent);
+    display:inline-block;
+    transform: translateY(-2px);
+  }
+
+  .brand small{
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .count-pill{
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--teal);
+    background: var(--teal-bg);
+    border: 1px solid #bfe0d8;
+    padding: 6px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    padding: 64px 0 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-eyebrow{
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom: 20px;
+  }
+
+  .hero-eyebrow::before{
+    content:"";
+    width: 26px; height:1px;
+    background: var(--accent);
+  }
+
+  h1.headline{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    max-width: 15ch;
+    color: var(--ink);
+  }
+
+  h1.headline em{
+    font-style: italic;
+    font-weight: 500;
+    color: var(--teal);
+  }
+
+  .hero-sub{
+    margin-top: 20px;
+    max-width: 46ch;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- SEARCH / FILTER BOARD ---------- */
+
+  .board{
+    margin-top: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 1px 0 rgba(19,42,58,0.02);
+  }
+
+  .search-row{
+    display:flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .search-input-wrap{
+    flex: 1 1 260px;
+    position: relative;
+  }
+
+  .search-input-wrap svg{
+    position:absolute;
+    left: 14px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-soft);
+  }
+
+  #searchInput{
+    width: 100%;
+    padding: 13px 16px 13px 42px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    font-family: var(--body);
+    font-size: 0.95rem;
+    background: #FBFCFD;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .15s ease, background .15s ease;
+  }
+
+  #searchInput:focus{
+    border-color: var(--teal);
+    background: #fff;
+  }
+
+  #searchInput::placeholder{ color: #93A4AC; }
+
+  .clear-btn{
+    border: 1px solid var(--line);
+    background: #FBFCFD;
+    color: var(--ink-soft);
+    font-family: var(--body);
+    font-size: 0.88rem;
+    padding: 0 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+  }
+  .clear-btn:hover{ background: #F1F4F5; color: var(--ink); }
+  .clear-btn:focus-visible, #searchInput:focus-visible, .chip:focus-visible, .card-link:focus-visible{
+    outline: 2px solid var(--teal);
+    outline-offset: 2px;
+  }
+
+  .chip-row{
+    margin-top: 14px;
+    display:flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .chip{
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.02em;
+    padding: 7px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    background: #FBFCFD;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all .15s ease;
+    text-transform: uppercase;
+  }
+
+  .chip:hover{ border-color: var(--teal); color: var(--teal); }
+
+  .chip.active{
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+
+  /* ---------- RESULTS META ---------- */
+
+  .results-meta{
+    margin: 34px 0 18px;
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .results-meta h2{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+
+  .results-meta .sub{
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- GRID / CARDS ---------- */
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+    padding-bottom: 80px;
+  }
+
+  .card{
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 22px 20px;
+    display:flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+
+  .card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px -18px rgba(19,42,58,0.35);
+    border-color: #b8c7ce;
+  }
+
+  .card-top{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .cat-tag{
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--teal-bg);
+    padding: 5px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  /* signature stamp */
+  .stamp{
+    flex-shrink: 0;
+    width: 62px; height: 62px;
+    border-radius: 50%;
+    border: 1.5px dashed var(--accent);
+    color: var(--accent-ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-family: var(--mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.05em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    transform: rotate(-9deg);
+    background: repeating-linear-gradient(135deg, rgba(217,142,43,0.06) 0px, rgba(217,142,43,0.06) 2px, transparent 2px, transparent 7px);
+    font-weight: 600;
+  }
+
+  .card-title{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.18rem;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+  }
+
+  .card-inst{
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+
+  .card-inst strong{ color: var(--ink); font-weight: 600; }
+
+  .card-desc{
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  .card-meta{
+    display:flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    border-top: 1px dashed var(--line);
+    padding-top: 12px;
+  }
+
+  .card-meta span{ display:flex; align-items:center; gap:5px; }
+
+  .card-link{
+    margin-top: 4px;
+    display:inline-flex;
+    align-items:center;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--accent);
+    width: fit-content;
+    padding-bottom: 1px;
+    transition: gap .15s ease;
+  }
+  .card-link:hover{ gap: 10px; }
+
+  /* ---------- EMPTY STATE ---------- */
+
+  .empty{
+    display:none;
+    padding: 70px 20px;
+    text-align:center;
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    margin-bottom: 80px;
+  }
+
+  .empty.show{ display:block; }
+
+  .empty h3{
+    font-family: var(--display);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .empty p{ color: var(--ink-soft); font-size: 0.92rem; }
+
+  /* ---------- FOOTER ---------- */
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 30px 0 50px;
+  }
+
+  footer .wrap{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer p{
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 560px){
+    .hero{ padding: 44px 0 28px; }
+    .search-row{ flex-direction: column; }
+    .clear-btn{ padding: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-bar">
+    <div class="brand">
+      <span class="dot"></span>QualificaWeb
+      <small>&nbsp;— cursos gratuitos</small>
+    </div>
+    <div class="count-pill" id="countPill">— cursos disponíveis</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow">Mural de oportunidades</p>
+    <h1 class="headline">Cursos gratuitos, <em>oportunidades reais.</em></h1>
+    <p class="hero-sub">Uma seleção organizada de cursos gratuitos e certificados de instituições reconhecidas. Busque por assunto ou filtre por área para encontrar o próximo passo.</p>
+
+    <div class="board">
+      <div class="search-row">
+        <div class="search-input-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" placeholder="Buscar por curso, instituição ou palavra-chave...">
+        </div>
+        <button class="clear-btn" id="clearBtn">Limpar busca</button>
+      </div>
+      <div class="chip-row" id="chipRow"></div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="results-meta">
+    <h2 id="resultsTitle">Todos os cursos</h2>
+    <span class="sub" id="resultsCount"></span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="empty" id="emptyState">
+    <h3>Nenhum curso encontrado</h3>
+    <p>Tente outra palavra-chave ou remova o filtro de área selecionado.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>QualificaWeb — atualizado manualmente pela equipe</p>
+    <p>Lista de cursos editável em <code>COURSES</code> no código-fonte</p>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   LISTA DE CURSOS — edite este array para adicionar, remover ou alterar
+   cursos. Cada objeto é um curso. Campos:
+   - title: nome do curso
+   - institution: quem oferece
+   - category: uma das categorias usadas nos filtros (veja CATEGORIES)
+   - description: resumo curto (1-2 frases)
+   - duration: ex "20h", "3 semanas"
+   - modality: "EAD" ou "Presencial"
+   - link: URL para inscrição/mais informações
+===================================================================== */
+
+const COURSES = [
+  {
+    title: "Introdução à Análise de Dados - Microsoft Power BI",
+    institution: "Fundação Bradesco — Escola Virtual",
+    category: "Tecnologia",
+    description: "Primeiros passos no Power BI: conceitos de análise de dados e navegação básica na ferramenta.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.ev.org.br/cursos/introducao-a-analise-de-dados-microsoft-power-bi"
+  },
+  {
+    title: "Administrando Banco de Dados",
+    institution: "Fundação Bradesco — Escola Virtual",
+    category: "Tecnologia",
+    description: "Conceitos fundamentais de bancos de dados e boas práticas para organizar e administrar informações.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.ev.org.br/cursos/administrando-banco-de-dados"
+  },
+  {
+    title: "Análise de Dados no Power BI",
+    institution: "Fundação Bradesco — Escola Virtual",
+    category: "Tecnologia",
+    description: "Aprofundamento no Power BI, com foco em construir análises e relatórios a partir de dados reais.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.ev.org.br/cursos/analise-de-dados-no-power-bi"
+  },
+  {
+    title: "Crie um site simples usando HTML, CSS e JavaScript",
+    institution: "Fundação Bradesco — Escola Virtual",
+    category: "Tecnologia",
+    description: "Introdução prática ao desenvolvimento web, construindo um site do zero com as três tecnologias base.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript"
+  },
+  {
+    title: "Linguagem de Programação Python - Básico",
+    institution: "Fundação Bradesco — Escola Virtual",
+    category: "Tecnologia",
+    description: "Fundamentos da linguagem Python para quem está começando a programar.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.ev.org.br/cursos/linguagem-de-programacao-python-basico"
+  },
+  {
+    title: "Fundamentos de TI: Hardware e Software",
+    institution: "Fundação Bradesco — Escola Virtual",
+    category: "Tecnologia",
+    description: "Noções essenciais sobre componentes de hardware e software para quem quer iniciar em TI.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software"
+  },
+  {
+    title: "Excel básico 2013/2016",
+    institution: "Udemy",
+    category: "Tecnologia",
+    description: "Funções essenciais do Excel para organizar planilhas e agilizar tarefas do dia a dia.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.udemy.com/course/excel-basico-20132016/"
+  },
+  {
+    title: "Microsoft PowerPoint para quem não sabe nada de PowerPoint",
+    institution: "Udemy",
+    category: "Tecnologia",
+    description: "Passo a passo para criar apresentações do zero, pensado para quem nunca usou o programa.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.udemy.com/course/powerpoint-para-quem-nao-sabe-nada-de-powerpoint/"
+  },
+  {
+    title: "Discovery - Mini curso de inglês gratuito",
+    institution: "Udemy",
+    category: "Idiomas",
+    description: "Introdução ao inglês com foco em vocabulário e expressões do cotidiano.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.udemy.com/course/mini-curso-de-ingles-gratuito/"
+  },
+  {
+    title: "Empreendedorismo",
+    institution: "Udemy",
+    category: "Administração",
+    description: "Conceitos centrais para quem quer tirar um negócio do papel, da ideia ao planejamento inicial.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.udemy.com/course/curso-de-empreendedorismo/"
+  },
+  {
+    title: "Investimento em Renda Fixa - Iniciante",
+    institution: "Udemy",
+    category: "Finanças",
+    description: "Introdução ao Tesouro Direto e outros investimentos de renda fixa para quem está começando.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.udemy.com/course/tesouro-direto-intermediario-e-avancado/"
+  },
+  {
+    title: "Matemática Básica",
+    institution: "Udemy",
+    category: "Educação",
+    description: "Revisão dos conceitos fundamentais de matemática, ideal para reforçar a base antes de outros estudos.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://www.udemy.com/course/matematica-basica-denis-wiener/"
+  },
+  {
+    title: "Manutenção preventiva de veículos",
+    institution: "SEST SENAT",
+    category: "Automotivo",
+    description: "Cuidados básicos e rotina de manutenção para manter o veículo em bom estado e evitar problemas.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://digital.sestsenat.org.br/cursos/manutencao-preventiva-de-veiculos"
+  },
+  {
+    title: "Mecânica descomplicada",
+    institution: "SEST SENAT",
+    category: "Automotivo",
+    description: "Noções de mecânica automotiva explicadas de forma simples para o dia a dia de quem dirige.",
+    duration: "Ver no curso",
+    modality: "EAD",
+    link: "https://digital.sestsenat.org.br/cursos/mecanica-descomplicada"
+  }
+];
+
+const CATEGORIES = ["Todos", ...Array.from(new Set(COURSES.map(c => c.category))).sort()];
+
+/* ===================================================================== */
+
+let activeCategory = "Todos";
+let searchTerm = "";
+
+const grid = document.getElementById('grid');
+const chipRow = document.getElementById('chipRow');
+const emptyState = document.getElementById('emptyState');
+const resultsTitle = document.getElementById('resultsTitle');
+const resultsCount = document.getElementById('resultsCount');
+const countPill = document.getElementById('countPill');
+const searchInput = document.getElementById('searchInput');
+const clearBtn = document.getElementById('clearBtn');
+
+function renderChips(){
+  chipRow.innerHTML = "";
+  CATEGORIES.forEach(cat => {
+    const chip = document.createElement('button');
+    chip.className = 'chip' + (cat === activeCategory ? ' active' : '');
+    chip.textContent = cat;
+    chip.setAttribute('type', 'button');
+    chip.addEventListener('click', () => {
+      activeCategory = cat;
+      renderChips();
+      renderGrid();
+    });
+    chipRow.appendChild(chip);
+  });
+}
+
+function stampWords(){
+  return ["Curso", "Gratuito"];
+}
+
+function cardHTML(course){
+  const [w1, w2] = stampWords();
+  return `
+    <article class="card">
+      <div class="card-top">
+        <span class="cat-tag">${course.category}</span>
+        <div class="stamp" aria-hidden="true">${w1}<br>${w2}</div>
+      </div>
+      <h3 class="card-title">${course.title}</h3>
+      <p class="card-inst"><strong>${course.institution}</strong></p>
+      <p class="card-desc">${course.description}</p>
+      <div class="card-meta">
+        <span>⏱ ${course.duration}</span>
+        <span>💻 ${course.modality}</span>
+      </div>
+      <a class="card-link" href="${course.link}" target="_blank" rel="noopener noreferrer">
+        Ver mais informações →
+      </a>
+    </article>
+  `;
+}
+
+function renderGrid(){
+  const term = searchTerm.trim().toLowerCase();
+
+  const filtered = COURSES.filter(c => {
+    const matchesCategory = activeCategory === "Todos" || c.category === activeCategory;
+    const haystack = (c.title + " " + c.institution + " " + c.description + " " + c.category).toLowerCase();
+    const matchesSearch = term === "" || haystack.includes(term);
+    return matchesCategory && matchesSearch;
+  });
+
+  grid.innerHTML = filtered.map(cardHTML).join("");
+  emptyState.classList.toggle('show', filtered.length === 0);
+
+  resultsTitle.textContent = activeCategory === "Todos" ? "Todos os cursos" : activeCategory;
+  resultsCount.textContent = `${filtered.length} ${filtered.length === 1 ? 'resultado' : 'resultados'}`;
+}
+
+searchInput.addEventListener('input', (e) => {
+  searchTerm = e.target.value;
+  renderGrid();
+});
+
+clearBtn.addEventListener('click', () => {
+  searchTerm = "";
+  searchInput.value = "";
+  activeCategory = "Todos";
+  renderChips();
+  renderGrid();
+  searchInput.focus();
+});
+
+countPill.textContent = `${COURSES.length} cursos disponíveis`;
+renderChips();
+renderGrid();
+</script>
+
+</body>
+</html>
