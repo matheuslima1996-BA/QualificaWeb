@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QualificaWeb</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>QualificaWeb</h1>
+        <p>Cursos gratuitos e oportunidades de aprendizado</p>
+    </header>
+
+    <main>
+
+        <section class="introducao">
+            <h2>Encontre um curso gratuito</h2>
+
+            <p>
+                O QualificaWeb reúne cursos gratuitos de diferentes áreas
+                para ajudar quem deseja aprender algo novo.
+            </p>
+        </section>
+
+        <section class="filtros">
+
+            <input
+                type="text"
+                id="campoBusca"
+                placeholder="Digite o nome do curso..."
+            >
+
+            <div id="categorias">
+
+                <button onclick="filtrarCategoria('Todos')">
+                    Todos
+                </button>
+
+                <button onclick="filtrarCategoria('Tecnologia')">
+                    Tecnologia
+                </button>
+
+                <button onclick="filtrarCategoria('Idiomas')">
+                    Idiomas
+                </button>
+
+                <button onclick="filtrarCategoria('Administração')">
+                    Administração
+                </button>
+
+                <button onclick="filtrarCategoria('Finanças')">
+                    Finanças
+                </button>
+
+                <button onclick="filtrarCategoria('Educação')">
+                    Educação
+                </button>
+
+                <button onclick="filtrarCategoria('Automotivo')">
+                    Automotivo
+                </button>
+
+            </div>
+
+        </section>
+
+        <p id="quantidade"></p>
+
+        <section id="listaCursos" class="lista-cursos"></section>
+
+        <p id="nenhumCurso">
+            Nenhum curso encontrado.
+        </p>
+
+    </main>
+
+    <footer>
+        <p>QualificaWeb © 2026</p>
+        <p>Projeto desenvolvido para facilitar o acesso a cursos gratuitos.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
