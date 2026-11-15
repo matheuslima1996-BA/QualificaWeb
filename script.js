@@ -236,3 +236,73 @@ document.getElementById("campoBusca").addEventListener(
 
 
 mostrarCursos();
+
+
+/* ---------- Instituições ---------- */
+
+const instituicoes = {
+
+    "Fundação Bradesco": {
+        tipo: "Fundação sem fins lucrativos",
+        descricao: "Braço educacional do Grupo Bradesco. A Escola Virtual reúne cursos online gratuitos, com certificado, em áreas como tecnologia, finanças e desenvolvimento pessoal.",
+        link: "https://www.ev.org.br"
+    },
+
+    "Udemy": {
+        tipo: "Plataforma de cursos online",
+        descricao: "Plataforma onde instrutores independentes publicam cursos. Aqui são listados apenas cursos com acesso gratuito. Por ser uma plataforma aberta, vale conferir a avaliação de cada curso.",
+        link: "https://www.udemy.com/pt/"
+    },
+
+    "SEST SENAT": {
+        tipo: "Serviço social e aprendizagem do transporte",
+        descricao: "Entidades do Sistema S voltadas ao setor de transporte. Oferecem cursos gratuitos de capacitação profissional, presenciais e online, para trabalhadores do transporte e para a comunidade.",
+        link: "https://digital.sestsenat.org.br"
+    }
+
+};
+
+
+function mostrarInstituicoes() {
+
+    let area = document.getElementById("listaInstituicoes");
+
+    area.innerHTML = "";
+
+    Object.keys(instituicoes).forEach(function(nome) {
+
+        let info = instituicoes[nome];
+
+        let total = cursos.filter(function(curso) {
+            return curso.instituicao == nome;
+        }).length;
+
+        area.innerHTML += `
+
+            <div class="instituicao">
+
+                <h3>${nome}</h3>
+
+                <p class="tipo">${info.tipo}</p>
+
+                <p>${info.descricao}</p>
+
+                <p>
+                    <strong>Cursos listados:</strong>
+                    ${total}
+                </p>
+
+                <a href="${info.link}" target="_blank">
+                    Site oficial
+                </a>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+mostrarInstituicoes();
